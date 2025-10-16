@@ -97,3 +97,11 @@ InitTestScene*.unity*
 
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+
+
+
+/Prototype2/Assets/Fonts
+/Prototype2/Assets/Fonts/PatrickHand SDF.asset
+/Prototype2/Assets/Scenes/SHADER_TEST_SCENES
+/Prototype2/Assets/Scenes/SHADER_TEST_SCENES.meta
+/Prototype2/Library/PackageCache/com.unity.burst@1.8.17/.Runtime/libburst-llvm-16.dylib
