@@ -7,10 +7,10 @@ public class SpawnerScript : MonoBehaviour
     public GameObject obstaclePrefab;
     [Header("Spawn Settings")]
     public float spawnInterval = 1f;
-    public float spawnRange = 8f;
+    public float spawnRange = 6f;
     public float spawnYPosition = -15f;
     public float maxRotationY = 90f;
-    public float startingObstacleSpeed = 5f;
+    public float startingObstacleSpeed = 10f;
 
     // Start is called before the first frame update
     void Start()
