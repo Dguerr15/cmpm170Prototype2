@@ -11,7 +11,9 @@ public class Movement : MonoBehaviour
     private Rigidbody camRb;
 
     public GameManager gameManager; //referance to the gameManager object to restart game after death
-  // Update is called once per frame
+    public AudioSource audioSource;
+
+    // Update is called once per frame
     void Start()
     {
         camRb = GetComponent<Rigidbody>();
@@ -42,6 +44,9 @@ public class Movement : MonoBehaviour
         camRb.constraints = RigidbodyConstraints.None;
         camRb.AddTorque(Random.insideUnitSphere * moveSpeed);
         //Time.timeScale = 0f;
+        if (audioSource != null)
+            audioSource.Play(); 
+
         if (gameManager != null)
         {
             gameManager.ShowGameOverScreen();
