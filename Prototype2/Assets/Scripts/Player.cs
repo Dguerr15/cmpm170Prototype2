@@ -39,6 +39,7 @@ public class Movement : MonoBehaviour
     {
         isGameOver = true;
         camRb.useGravity = true;
+        camRb.constraints = RigidbodyConstraints.None;
         camRb.AddTorque(Random.insideUnitSphere * moveSpeed);
         //Time.timeScale = 0f;
         if (gameManager != null)
