@@ -1058,11 +1058,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstaclePrefab: {fileID: 6892733367501907165, guid: 7e2fcabe698e2114eb6abfb073b5e39e,
     type: 3}
-  spawnInterval: 1.5
+  obstacleCount: 4
+  obstacleChunkHeight: 4
+  obstacleChunkRadius: 2.5
+  spawnInterval: 4
   spawnRange: 2
-  spawnYPosition: -50
+  spawnPosition: {x: 0, y: -15, z: 0}
   maxRotationY: 90
-  startingObstacleSpeed: 10
+  startingObstacleSpeed: 4
+  seed: 1234
+  enableSeedGeneration: 0
 --- !u!4 &1272384644
 Transform:
   m_ObjectHideFlags: 0
