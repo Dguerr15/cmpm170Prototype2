@@ -45,18 +45,25 @@ public class SpawnerScript : MonoBehaviour
             // 1. Wait for the defined interval before spawning
             yield return new WaitForSeconds(spawnInterval);
 
-            //start
+            // 2. Create an anchor rotation to build off on the y-axis
             float rand_rotation_y = Random.Range(-10f, 30f);
+
+            // 3. Create X amount of prefabs and run the translation algorithm
             for (int i = 0; i < obstacleCount; i += 1)
             {
+                //spawns at the global location given by the developers
                 GameObject newObstacle = Instantiate(obstaclePrefab, spawnPosition, Quaternion.identity);
+                //deteremine a y-position relative to the spawn position
                 float rand_position_y = Random.Range(-obstacleChunkHeight, obstacleChunkHeight);
+                //scale the x-rotation of the plank relative to its distance to the spawn center
                 float rand_rotation_x = Random.Range(-60f, 60f) * (rand_position_y / obstacleChunkHeight / 2);
+                //appply generated rotations and translations
                 newObstacle.transform.rotation = Quaternion.Euler(rand_rotation_x, rand_rotation_y, 0);
                 newObstacle.transform.Translate(new Vector3(Random.Range(0f, obstacleChunkRadius), rand_position_y, 0f));
+                //increment the anchor rotation
                 rand_rotation_y += Random.Range(40f, 100f);
 
-                // 5. Pass the speed to the obstacle movement script
+                // 4. Pass the speed to the obstacle movement script
                 ObstacleBehavior movementScript = newObstacle.GetComponent<ObstacleBehavior>();
                 if (movementScript != null)
                 {
