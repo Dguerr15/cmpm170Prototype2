@@ -37,6 +37,12 @@ public class SpawnerScript : MonoBehaviour
         StartCoroutine(SpawnObstacles());
     }
 
+    private void FixedUpdate()
+    {
+        // speed up objectfalling speed as time goes on
+        startingObstacleSpeed += Time.fixedDeltaTime * .1f;
+    }
+
     IEnumerator SpawnObstacles()
     {
         // Infinite loop to keep spawning while the game is running
