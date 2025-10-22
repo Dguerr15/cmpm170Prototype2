@@ -7,6 +7,8 @@ public class CameraModelCameo : MonoBehaviour
     public Transform model;       
     private Animator animator;
     private AudioSource audioSource;
+    public GameManager gameManager;
+    private bool stop;
 
     [Header("Timing")]
     public float triggerInterval = 30f; // Repeat every 30s
@@ -39,6 +41,9 @@ public class CameraModelCameo : MonoBehaviour
         audioSource =model? model.GetComponent<AudioSource>(): null;
 
         animator = model ? model.GetComponent<Animator>() : null;
+
+        if (gameManager) gameManager.OnGameOver += () => stop = true;
+
         if (!model)
         {
             Debug.LogWarning("CameraModelCameo: assign 'model' (child of camera).");
@@ -59,6 +64,8 @@ public class CameraModelCameo : MonoBehaviour
 
     void Update()
     {
+        if (stop) return;
+
         if (Time.timeScale == 0f) return;
 
         if (Time.time >= nextTriggerTime)

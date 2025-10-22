@@ -35,7 +35,7 @@ public class BGMPlayer : MonoBehaviour
             audioSource.Play();
 
             // wait until it finishes
-            yield return new WaitForSeconds(clip.length);
+            yield return new WaitWhile(() => audioSource.isPlaying);
 
             if (!loopPlaylist)
                 break; // stop after one random track
