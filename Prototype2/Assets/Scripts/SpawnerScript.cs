@@ -14,7 +14,7 @@ public class SpawnerScript : MonoBehaviour
     public float spawnRange = 6f;
     public Vector3 spawnPosition = new Vector3(0f, -15f, 0f);
     public float maxRotationY = 90f;
-    public float startingObstacleSpeed = 10f;
+    public float startingObstacleSpeed = 100f;
 
     public int seed = 1234;
     public bool enableSeedGeneration = false;

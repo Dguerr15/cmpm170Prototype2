@@ -6,6 +6,7 @@ public class CameraModelCameo : MonoBehaviour
     [Header("Refs")]
     public Transform model;       
     private Animator animator;
+    private AudioSource audioSource;
 
     [Header("Timing")]
     public float triggerInterval = 30f; // Repeat every 30s
@@ -35,6 +36,8 @@ public class CameraModelCameo : MonoBehaviour
 
     void Start()
     {
+        audioSource =model? model.GetComponent<AudioSource>(): null;
+
         animator = model ? model.GetComponent<Animator>() : null;
         if (!model)
         {
@@ -73,6 +76,7 @@ public class CameraModelCameo : MonoBehaviour
 
         // Play mambo animation
         if (animator) animator.SetTrigger("mambo");
+        if (audioSource) audioSource.Play();
         yield return new WaitForSeconds(holdCenterTime);
 
         // Center ¡÷ Right (rotate Y 0¡÷180)
