@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -11,6 +12,9 @@ public class GameManager : MonoBehaviour
     public GameObject countDown;
     public float countdownSeconds = 3f;
     private TextMeshProUGUI countdownText;
+
+    public bool IsGameOver { get; private set; }
+    public event Action OnGameOver;
     void Awake()
     {
         Time.timeScale = 0f;
@@ -49,10 +53,15 @@ public class GameManager : MonoBehaviour
 
     public void ShowGameOverScreen()
     {
+        if (IsGameOver) return;
+            IsGameOver = true;
+
         if (gameOverUi != null)
         {
             gameOverUi.SetActive(true);
         }
+
+        OnGameOver?.Invoke();         // <¡X notify listeners
     }
 
     public void RestartGame()
