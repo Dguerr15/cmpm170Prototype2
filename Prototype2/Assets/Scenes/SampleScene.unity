@@ -350,7 +350,6 @@ GameObject:
   - component: {fileID: 330585548}
   - component: {fileID: 330585549}
   - component: {fileID: 330585550}
-  - component: {fileID: 330585551}
   - component: {fileID: 330585552}
   m_Layer: 0
   m_Name: Main Camera
@@ -523,8 +522,8 @@ Rigidbody:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 6
-  m_AngularDrag: 50
+  m_Drag: 1
+  m_AngularDrag: 1
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -541,20 +540,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
---- !u!114 &330585551
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 330585543}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f5e262f48a0fa64fa9a919e5a79004c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wallTag: Wall
-  stopThreshold: 2
 --- !u!114 &330585552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -568,18 +553,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   model: {fileID: 988902179}
-  triggerInterval: 30
+  triggerInterval: 5
   behindPos: {x: 0, y: -0.25, z: -0.6}
   enterPos: {x: -0.6, y: -0.25, z: 1}
   centerPos: {x: 0, y: -0.25, z: 1}
   exitPos: {x: 0.6, y: -0.25, z: 1}
+  leftRotationY: 0
+  centerRotationY: 180
   slideInTime: 0.5
   holdCenterTime: 2
   slideOutTime: 0.5
   returnBehindTime: 0.35
-  leftRotationY: 0
-  centerRotationY: 180
   cameoScale: 0.25
+  actionTriggers:
+  - mambo
+  - fornight
+  - left_right
+  - stretching
+  - waving
+  - floating
+  enableSeed: 1
+  seed: 12345
+  avoidImmediateRepeat: 1
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1501,6 +1496,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 88db3e16a8b42e3479b3f6503ff562d5, type: 3}
   - {fileID: 8300000, guid: 83dd95ce241ca694591671d0d4789145, type: 3}
   loopPlaylist: 1
+  windClip: {fileID: 8300000, guid: ecfbfacc6ec6bb54e869d296d94acbb3, type: 3}
+  windVolume: 0.2
+  windFadeTime: 2
 --- !u!82 &972827024
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1513,7 +1511,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1725,7 +1723,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1272384643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1745,9 +1743,9 @@ MonoBehaviour:
   obstacleChunkRadius: 2.5
   spawnInterval: 1
   spawnRange: 2
-  spawnPosition: {x: 0, y: -35, z: 0}
+  spawnPosition: {x: 0, y: -50, z: 0}
   maxRotationY: 90
-  startingObstacleSpeed: 30
+  startingObstacleSpeed: 20
   seed: 1234
   enableSeedGeneration: 0
 --- !u!4 &1272384644
@@ -1970,7 +1968,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 50
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
