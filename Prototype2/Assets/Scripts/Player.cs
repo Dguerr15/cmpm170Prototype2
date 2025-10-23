@@ -13,6 +13,9 @@ public class Movement : MonoBehaviour
     public GameManager gameManager; //referance to the gameManager object to restart game after death
     public AudioSource audioSource;
 
+    public AudioClip glassCrackingSound;
+    public AudioClip metalThudSound;
+
     // Update is called once per frame
     void Start()
     {
@@ -45,8 +48,10 @@ public class Movement : MonoBehaviour
         camRb.AddTorque(Random.insideUnitSphere * moveSpeed);
         //Time.timeScale = 0f;
         if (audioSource != null)
-            audioSource.Play(); 
-
+        {
+            audioSource.PlayOneShot(glassCrackingSound);
+            audioSource.PlayOneShot(metalThudSound);
+        }
         if (gameManager != null)
         {
             gameManager.ShowGameOverScreen();
