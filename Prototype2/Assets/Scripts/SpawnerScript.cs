@@ -15,6 +15,7 @@ public class SpawnerScript : MonoBehaviour
     public Vector3 spawnPosition = new Vector3(0f, -15f, 0f);
     public float maxRotationY = 90f;
     public float startingObstacleSpeed = 100f;
+    public float rateOfChange = 0.5f;
 
     public int seed = 1234;
     public bool enableSeedGeneration = false;
@@ -40,7 +41,7 @@ public class SpawnerScript : MonoBehaviour
     private void FixedUpdate()
     {
         // speed up objectfalling speed as time goes on
-        startingObstacleSpeed += Time.fixedDeltaTime * .1f;
+        startingObstacleSpeed += Time.fixedDeltaTime * rateOfChange;
     }
 
     IEnumerator SpawnObstacles()
