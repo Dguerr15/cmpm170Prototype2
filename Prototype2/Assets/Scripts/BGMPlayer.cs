@@ -61,7 +61,7 @@ public class BGMPlayer : MonoBehaviour
             bgmSource.clip = clip;
 
             // Fade in & play
-            yield return StartCoroutine(FadeIn(bgmSource, 1f, 1.5f));
+            yield return StartCoroutine(FadeIn(bgmSource, .3f, 1.5f));
 
             // Wait for track to end (works regardless of timeScale)
             yield return new WaitWhile(() => bgmSource.isPlaying);
