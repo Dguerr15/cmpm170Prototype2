@@ -1739,6 +1739,7 @@ MonoBehaviour:
   spawnPosition: {x: 0, y: -50, z: 0}
   maxRotationY: 90
   startingObstacleSpeed: 20
+  rateOfChange: 0.5
   seed: 1234
   enableSeedGeneration: 0
 --- !u!4 &1272384644
@@ -2570,7 +2571,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 0.9622642, g: 0.7403641, b: 0.37673548, a: 1}
   m_Intensity: 7
-  m_Range: 30
+  m_Range: 60
   m_SpotAngle: 35.55685
   m_InnerSpotAngle: 20.275515
   m_CookieSize: 10
