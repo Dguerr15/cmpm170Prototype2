@@ -555,7 +555,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   model: {fileID: 0}
-  triggerInterval: 5
+  triggerInterval: 30
   behindPos: {x: 0, y: -0.25, z: -0.6}
   enterPos: {x: -0.6, y: -0.25, z: 1}
   centerPos: {x: 0, y: -0.25, z: 1}
